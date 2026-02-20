@@ -5,6 +5,8 @@ from rich.console import Console
 from rich.live import Live
 from rich.text import Text
 
+from plyer import notification
+
 console = Console()
 
 
@@ -33,7 +35,7 @@ def pomodoro_session(label: str, duration_minutes: int) -> None:
             time.sleep(1)
 
     console.print(f"{label} complete!", style="bold green")
-    console.print("\a", end="")  # terminal bell
+    notification.notify("Pomodoro", f"{label} completed!", timeout=2)
 
 
 def pomodoro_cycle(work=25, short_break=5, long_break=15, cycles=4):

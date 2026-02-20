@@ -7,6 +7,7 @@ app = typer.Typer()
 
 @app.command()
 def cycle(work: int, long_break: int, short_break: int, cycles: int):
+    console.print(f"Work: {work} minutes\nShort break: {short_break} minutes\nLong break: {long_break} minutes\n", style="blue")
     pomodoro.pomodoro_cycle(work=work, long_break=long_break, short_break=short_break, cycles=cycles)
     console.print("Cycles completed!", style="blue")
 
